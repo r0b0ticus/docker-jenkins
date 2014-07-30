@@ -1,9 +1,8 @@
-FROM ubuntu:12.04
-MAINTAINER Allan Espinosa "allan.espinosa@outlook.com"
+FROM centos
+MAINTAINER David Michael <1.david.michael@gmail.com>
 
-RUN apt-get update && apt-get clean
-RUN apt-get install -q -y openjdk-7-jre-headless && apt-get clean
-ADD http://mirrors.jenkins-ci.org/war/1.574/jenkins.war /opt/jenkins.war
+RUN yum install -y java-1.7.0-openjdk-devel java
+ADD http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war /opt/jenkins.war
 RUN chmod 644 /opt/jenkins.war
 ENV JENKINS_HOME /jenkins
 
